@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ai-server:
+    build: .
+    container_name: farmer-ai-server
+    ports:
+      - "8000:8000"
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - SPRING_BOOT_URL=http://host.docker.internal:8080

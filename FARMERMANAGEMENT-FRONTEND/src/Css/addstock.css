@@ -1,0 +1,186 @@
+:root {
+    --primary-green: #558B2F;
+    --dark-green: #33691E;
+    --light-green: #9CCC65;
+    --accent-brown: #8D6E63;
+    --earth-tan: #D7CCC8;
+    --background: #F5F3F0;
+    --card-bg: #FFFFFF;
+    --text-dark: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/addstock.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.form-wrapper {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(51, 105, 30, 0.3);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px;
+    animation: slideIn 0.5s ease;
+    border-top: 4px solid var(--light-green);
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.form-header h1 {
+    color: var(--primary-green);
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.form-header .subtitle {
+    color: #666;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-section.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.required { color: #C62828; }
+.optional { color: #999; font-size: 12px; }
+
+input, select {
+    padding: 10px 13px;
+    border: 2px solid var(--earth-tan);
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #FAFAF8;
+    color: #334155;
+}
+
+input::placeholder {
+    color: #64748B;
+    opacity: 1;
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #64748B;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background-color: white;
+}
+
+.quality-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.radio-label {
+    cursor: pointer;
+    text-align: center;
+}
+
+.grade-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.grade-a { background-color: #E8F5E9; color: var(--primary-green); }
+.grade-b { background-color: #FFF9C4; color: #F57F17; }
+.grade-c { background-color: #FCE4EC; color: #C2185B; }
+
+/* Radio logic for JSX */
+input[type="radio"]:checked + .grade-badge {
+    border-color: var(--primary-green);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(85, 139, 47, 0.3);
+}
+
+.btn {
+    padding: 11px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+    color: white;
+    border: none;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.alert-success { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+.alert-error { background: #FFEBEE; color: #C62828; border: 1px solid #EF9A9A; }
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-green);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; }
+}

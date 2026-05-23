@@ -1,0 +1,25 @@
+# ML models
+*.pkl
+
+# datasets
+*.csv
+
+# notebooks
+*.ipynb
+
+# logs
+*.txt
+
+# Java
+target/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.qodo/
+
+# env
+.env
